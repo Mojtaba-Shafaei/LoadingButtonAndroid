@@ -1,18 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
-
-//Bintray depends on this global variable to set the library version!
-version = '1.11.1'
-group = 'br.com.simplepass'
+group='com.github.Mojtaba-Shafaei'
 
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 6
         versionName "1.11.1"
@@ -57,65 +53,6 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 artifacts {
     archives javadocJar
     archives sourcesJar
-}
-
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            name 'LoadingButtonAndroid'
-            description 'A button to substitute the ProgressDialog'
-            url 'https://github.com/leandroBorgesFerreira/LoadingButtonAndroid'
-            inceptionYear '2017'
-
-            packaging 'aar'
-            groupId 'br.com.simplepass'
-            artifactId 'loading-button-android'
-            version '1.11.1'
-
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-            scm {
-                connection 'https://github.com/leandroBorgesFerreira/LoadingButtonAndroid.git'
-                url 'https://github.com/leandroBorgesFerreira/LoadingButtonAndroid'
-
-            }
-            developers {
-                developer {
-                    name 'Leandro Borges Ferreira'
-                }
-            }
-        }
-    }
-}
-
-// Configure gradle-bintray-plugin (for publishing releases)
-bintray {
-    configurations = ['archives']
-
-    publish = true
-
-    pkg {
-        repo = 'maven'
-        name = 'loading-button'
-        userOrg = 'lehen01'
-        licenses = ['Apache-2.0']
-        labels = ['customview', 'fragment', 'map']
-        websiteUrl = 'https://github.com/leandroBorgesFerreira/LoadingButtonAndroid'
-        issueTrackerUrl = 'https://github.com/leandroBorgesFerreira/LoadingButtonAndroid/issues'
-        vcsUrl = 'https://github.com/leandroBorgesFerreira/LoadingButtonAndroid.git'
-        publicDownloadNumbers = true
-    }
-
-}
-
-if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
-    bintray.user = project.bintrayUser
-    bintray.key = project.bintrayKey
 }
 
 dependencies {
