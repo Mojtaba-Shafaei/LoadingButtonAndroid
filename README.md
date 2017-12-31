@@ -29,7 +29,7 @@ You can check how this library was implemented here: https://medium.com/p/9efee6
 
 ## Installation
 
-    compile 'br.com.simplepass:loading-button-android:[latest-version]'
+[![](https://jitpack.io/v/Mojtaba-Shafaei/LoadingButtonAndroid.svg)](https://jitpack.io/#Mojtaba-Shafaei/LoadingButtonAndroid)
 
 ## How to use
 
